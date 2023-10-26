@@ -1,0 +1,764 @@
+1.
+#include<stdio.h>
+
+#include<string.h
+
+#include<conio.h>
+
+#define N strlen(g)
+
+char t[128], cs[128] ,g[]="10110";
+
+int a, e, c;
+void xor() {
+for( c = 1; c < N ;c++) cs[c]=((cs[c]==g[c])?'0':'1');
+}
+
+void crc() {
+
+for(e-0;e<N;e++ ) cs[e] = t[e] ;
+
+do 
+{
+( if(cs[0]1') xor(); 
+for(c-0; c <N- 1 ;c++) cs[c]=cs[c+1]; 
+cs[c] =t[e++];
+
+} while(e <= a + N - 1 )
+
+} void main() {
+
+//clrscr(s
+
+printf("\nEnter poly: "); scanf("%s",t); printf("\nGenerating Polynomial is: %s",g);
+
+a-strlen(1);
+
+for(e-a; e < a + N - 1 ;e++) t[e]='0'; // N length of generating polynomial printf("\nModified t[u] is: %s",t);
+
+crc();
+
+printf("\nChecksum is: %s",cs);
+
+WRX
+
+for(e-a;e<a+N-1;e++) t[e]-cs[e-a); printf("\nFinal Codeword is :^ 0 / o s^ prime prime ,t) ; int check.gg: printf("\nTest Error detection 0(yes) * 1(no) ?^ n ); scanf("%d",&check); if(check=0){
+
+printf("\nEnter position where you want to insert error: "); scanf binom prime prime 0 od^ prime prime , ,\& gg );
+
+[gg)-([gg)-170:1);
+printf("\nErromneous data: %s",t): printf("\nError Detected"):
+}
+else{
+
+printf("\nno Error Detected");
+
+}
+
+getch():
+}
+
+OutPut:
+
+Enter poly: 1101011011
+
+Generating Polynomial is: 10110
+
+Modified t[u] is: 11010110110000
+
+Checksum is: 1000
+
+Final Codeword is: 11010110111000
+
+Test Error detection 0(yes) 1(no)?:0
+
+Enter position where you want to insert error: 3
+
+Erroneous data: 11000110111000
+
+Error detected.
+
+2.
+#include<stdio.h>
+
+#include<conio.h>
+
+#include<string.h>
+
+void main()
+
+char ch,arr[50]-("01111110"),rec[50];
+
+int i,j,k,len-8,cnt-0;
+
+printf("n enter the data:\n");
+
+while((ch=getche())!=\r) // The not-equal-to operator (!=) returns value; otherwise, it returns false
+
+if(ch='1')
+
+cnt++;
+
+else
+
+cnt=0:
+
+arr [ len ++]=ch
+
+f( cnt ==5)
+
+arr[len++]='0':
+
+cnt-0:
+
+strcat(arr."01111110"); printf("\n bit stuffed stream is :(n^ prime prime ) for(i=0;i<len+8;i++) printf("\n the destuffed stream is therefore( n ^ prime prime ) ;
+
+printf("%c",arr[i]);
+
+//destuffing
+
+cnt=0;
+
+for(j=8,k=0;j<len : j ++)
+
+if( anr[j] =^ prime 1^ prime )
+
+cnt++;
+
+else
+
+cnt=0;
+
+rec[k++]=arr[j];
+
+if(cnt=5&& r[j + 1] =^ prime 0^ prime )
+
+j++;
+
+cnt=0;
+
+}
+
+}
+
+for(j=0;j<k;j++)
+
+printf("%c",rec[j]);
+
+}
+
+getch();
+
+}
+
+Output
+
+Original Data: 0111000111111010
+
+Stuffed data: 011111100111000111110101001111110
+
+3.
+#include<stdio.h>
+
+#include<conio.h>
+
+#define DLE 16.
+
+#define STX 2
+
+#define ETX 3
+
+void main()
+
+char ch, arr[50] = \{DLE, STX\}, rec[50]
+
+int len-2,i.j;
+
+//clrscr();
+
+printf("enter the data stream:ctrl+p->DLE ctrl+b->STX ctrl+c->ETX \n"); ())!='\')
+
+if( ch = DLE
+
+arr[len++]=DLE;
+
+printf bigcap(" DL E^ prime prime )
+
+0.1seif(ch = STX)
+
+printf("STX"); else if(ch = ETX) printf mathbb (^ prime prime ET X^ prime prime ) else printf("%c",ch);
+
+arr[len++]-ch;
+
+arr r[ le n^ ++ ]=DL.E
+
+arr[len++] = ETX ;
+
+printf("\n the stuffed stream is: \n");
+
+for(i=0;i<len;i++)
+
+ch = arr[i]
+
+if(ch = DLE) printf("DLE"); else if(ch-STX)
+printf("STX"); else if(ch-ETX) printf("ETX") else printf("%c".ch):
+
+/destuffing
+
+printf("\n the destuffed data dtream is: \n"); forj-2j-len-2;j++)
+
+LE
+
+ch-arr[i]: if(ch-DLE)
+
+printf("DLE");
+
+else if(ch=STX) printf("STX"); else if(ch-ETX) printf("ETX"); elseprintf("%c",ch);
+
+getch(
+
+Output:
+
+i) Original data: MSRITECE Stuffed data: DLESTX MSRITECE DLEETX
+
+ii) Original data DLE MSRITECEDLE
+
+Stuffed data: DLESTX DLEDLE MSRITECEDLE DLE DLEETX
+
+4.
+#include <stdio.h>
+
+#include <ctype.h>
+
+#include <conio.h>
+
+#define MAX 1000
+
+int main()
+
+int s, pi, ci:
+
+char plain[MAX], cipher[MAX];
+
+printf("* Encryption & decryption using substitution cipher *\n\n");
+
+printf("Enter the plain text:\n");
+
+gets(plain);
+
+while(1)
+
+printf("\nKey (number of shifts per character) for encryption: "); scanf("%d", &s); ifs <1 s>25)//|| logical or function
+printf("Bad input! Enter a value between 1 and 25."); else
+
+Wirel
+
+break;
+
+1
+
+printf("\nAfter removing non alphabetical characters and capitalizing:\n")
+
+for(ci-0, pi=0; plain[pi] !-0: pi++)
+
+if(isalpha(plain[pi])) // If a character passed to isalpha() is an alphabet, returns 0
+
+putchar(toupper(plain[pi]));
+
+// The toupper() function is used to convert lowercase alphabet to upperc //putchar() function is a file handling function in which is used to write output/screen.
+
+cipher[ci++]=((toupper(plain[pi]) - 'A') + s% 26 ) % 26+ 'A':
+
+cipher[ci]=0';
+
+printf("\n\nAfter encryption:\n%s\n", cipher);
+
+while(1)
+
+printf("\nKey for decryption: ");
+
+scanf("%d", &s);
+
+if(s< 1 || s>25)
+
+printf("Bad input! Enter a value between 1 and 25."); else
+
+break;
+
+3
+
+for(pi-0, ci=0; cipher[ci] != "0"; ci++)
+
+plain[pi++)-((cipher[ci] - 'A')+(26-s) ) % 26+ 'A';
+
+plain[pi]="\0';
+
+printf("\nAfter decryption:\n%s", plain);
+
+//return 0;
+
+getch();
+
+}
+
+Output:
+
+i)Plain text: XYZ
+
+Key-2
+
+Cipher text: ZAB
+
+ii)Plain text: WIRELESS DATACOMMUNICATION
+
+Key any key
+
+Cipher text:
+
+5. 
+%Log-Normal Path Loss Indoor Propagation Model With Shadow
+
+cle
+
+clear all;
+
+do input('enter the reference distance:");
+
+close all;
+
+d=1000:1000:20000;
+
+n=[2.2 1.8 3.0 2.4 2.6 2.0 2.1 1.8 1.6 3.0 3.1 3.3];
+
+f=[914 914 1500 900 1900 1300 4000 1300 1300 900 1000 1300]; sigma 18.7.5.2 7.0.9.6 14.13.07.06.0 5.87.09.76.81
+
+fori-1:12
+
+lambda(i)-3e8/((i)*10^6)
+
+PL do(i)-10 log10((lambda(1)^2)/((4*pi*dor 2)):
+
+X(i) sigma(i) randn(size(PL_d0(i)));
+
+disp(X(D));
+
+end
+
+for i=1:12
+
+for j 1:20
+
+PL) PL do(i)+10 n(i) log10(d)/d0)+X(i);
+
+end
+
+end
+
+%Distance Vs Path Loss
+
+plot (d.PL);
+
+legend (retail store', 'grocery store', 'office hard partition', 'office soft partition', 'textile/chemical', 'paper/ cereals', 'metalworking', 'indoor street', 'textile/chemical, metalworking'), xlabel ('distance in m');
+
+oylabel (path loss in dB');
+
+title (LOG-DISTANCE PATH LOSS INDOOR PROPAGATION MODEL (WITH SHADOWING
+
+EFFECT');
+
+grid on;
+
+enter the reference distance:30
+
+6.
+%Log-Distance Path Loss Indoor Propagation Model (without sha
+
+cle
+
+clear all;
+
+close all;
+
+d0=input('enter the reference distance:');
+
+d = 1000/1000 / 20000
+
+n = [2.21 * 0.83 * 0 * 2.4 * 0.2 * 0.6 * 2 * 2.1 * 8 * 1.63 * 0 * 2.13 * 0.3]
+
+f=[914 914 1500 900 1900 1300 4000 1300 1300 900 4000 1300];
+
+X = 0
+
+for i=1:12
+
+lambda(i)=3e8/(f(i)*10^6);
+
+PL_d0(i)-10 log10((lambda(i)^2)/((4*pi*d0)^2))+X;
+
+end
+
+disp('PL_d0->d(dB)=');
+
+for i = 1/12
+
+for j = 1/20
+
+PL(i,j)=PL \ dO(i)+10^ * n(i)^ * log(10) * (d(j) / d * 0) ;
+
+end
+
+disp(PL(i));
+
+end
+plot (d. PL.);
+
+legend (retail store. 'grocery store', 'office hard partition, office soft partition, office soft partition', 'textile chemical", "textile/chemical", "paper/cereals, metalworking. indoor street', 'textile / chemical",
+
+'metalworking');
+
+xlabel (distance in m');
+
+ylabel (path loss in dB');
+
+title (LOG-DISTANCE PATH LOSS INDOOR PROPAGATION MODEL (NO SHADOWING EFFECT');
+
+grid on:
+
+enter the reference distance:30
+
+7.
+close all
+
+hite-input ('enter the tx height)
+
+hre 1:10.
+
+d-input Center the distance between tx and rx), Finput("enter the frequency:");
+
+% SUB URBAN AREA
+
+ahre 1-(1:1 log10(-0.7)*hre-(1.56 log10(-0.8); 150 1-69.55+26.16 log10(-13.82 log10(hte)+(44.9-6.55 log10(hte)) log10(d)-ahre_1; 150 dB 1-150 1-(2 log10(1/28) log10(1/28))-5.4;
+
+% RURAL/OPEN AREA
+
+ahre 2-(1.1 log10(f)-0.7) hre-(1.56 log10(1)-0.8); 1.50 2-69.55+26.16 log10(f)-13.82 log10(hte)+(44.9-6.55 log10(hte)) log10(d)-ahre 2. 150 dB 2-1.30 2-(4.78 log10(1) log10(f))+18.33 log10(f)-40.98;
+
+% LARGE CITY URBAN AREA
+
+iff 3000000000
+
+ahre 3-8.29* (log10(1-54 hre)), (log10(1.54*hre))-1.1: else ahre 3-3.2 (log10(11.75 hre)). (log10(11.75 hre))-4.97;
+
+end 1.50 3-69-55+26.16 log10(f)-13.82 log10(hte)+(44.9-6.55 log10(hte)) log10(d)-ahre 3; 1.50 dB 3-L50 3-(2 log10(f/28) log10(28))-5.4;
+
+% Rx height vs path loss
+
+figure
+
+plot (hre, L50 dB 1.r. hre, 150 dB 2,ghre, LS0_3.'b',hre, L50 dB 3,'m'); legend (L 5 0(dB)(medium- small city (suburban area)), 'L 5 0(dB)(medium- small city (rural/open area)), 'L_5_0(dB)(large city (urban area))', 'L 5 0(dB) large city (suburban area))');
+
+xlabel('distance in m'); ylabel ('path loss in dB );
+
+title (HATA MODEL");
+
+grid on:
+
+output:
+
+enter the tx height:30
+
+enter the distance between Tx and Rx:1000
+
+enter the frequency:925000000
+
+8.
+clc;
+
+clear all;
+
+close all;
+
+bits-1-1-101];
+
+walsh-[1111;1-11-11 1-1-1;1-1-11];
+
+d-zeros(1,4);
+
+encryp=zeros(4,4);
+
+for i=1:4
+
+for j-1:4
+
+encryp(i,j) bits(i)*walsh(i,j);
+
+d(j)=d(j)+encryp(i,j)
+
+end
+
+end
+
+figure(1);
+
+subplot(4,4,1);
+
+stairs(encryp(1.:)): title('station 1 code');
+
+xlim([15]); ylim((-331): grid(): subplot(4,4,2); stairs(encryp(2) title('station 2 code'); xlim([15]); subplot(4,4,5); stains(encryp(3.:)); title('station 3 code'); xlim([15]); ylim(-221k grid(): subplot(4,4,6): stairs(encryp(4.:)): title('station 4 code'); xlim([15]); ylim(-331):
+
+ylim(1-3 3]); grid():
+
+grid());
+
+subplot(2,2,2);
+
+stairs(d);
+
+title('multiplexed channel data');
+
+xlim[15]);
+
+ylim([-42]);
+
+grid();
+
+demux=[0 0 0 0];
+
+inner-zeros(4,4):
+
+for i=1:4
+
+for j-1:4
+
+inner(i,j)-d()*walsh(i,j);
+
+demux(i)-demux(i)+d()*walsh(ij) end
+
+end
+
+demux-demux/4;
+
+subplot(4,4,9);
+
+stairs(inner(1.:));
+
+title('inner product 1');
+
+xlim([15]);
+
+ylim(-44]):
+
+grid();
+
+subplot(4,4,10);
+
+stairs(inner(2.:)):
+title('inner product 2'):
+
+xlim([15]):
+
+ylim([-44]);
+
+grid();
+
+subplot(4,4,13):
+
+stairs(inner(3.:)):
+
+title('inner product 3'); xlim([15]);
+
+ylim([-4 4]);
+
+grid();
+
+subplot(4,4,14);
+
+stairs(inner(4,:));
+
+title('inner product 4');
+
+xlim([15]);
+
+ylim([-4 4]):
+
+grid();
+
+subplot(2,2,4);
+
+stairs(demux);
+
+title('demultiplexed output');
+
+xlim([15]);
+
+ylim([-4 4]);
+
+grid();
+
+9.
+clc:
+
+close all: clear all;
+
+% Number of information bits m=10^5;
+
+%Range of SNR values snr_dB [0:1:20]; for j=1:1:length(snr_dB)
+
+n_err=0;
+
+n_bits = 0;
+
+while n_err < 100
+
+% Generate sequence of binary bits inf_bits round(rand(1,m));
+
+% BPSK modulator x=2*(inf_bits-0.5);
+
+% Noise variance NO-1/10(snr_dB/10),
+
+% Rayleigh channel fading h=1/sqrt(2) [randn(1.length(x))+ i*randn(1,length(x))];
+
+% Send over Gaussian Link to the receiver y-h.x + sqrt(N0/2) (randn(1.length(x))+i*randn(1,length(x)));
+
+% decision metric
+
+y=y./h;
+
+% Decision making at the Receiver
+
+est_bits y < 0;
+
+% Calculate Bit Errors
+
+diff-inf bits-est bits
+
+n_err n_err+sum(abs(diff)); n_bits-n_bits+length(inf_bits);
+
+end
+% Calculate Bit Error Rate BER()=n_err/n_bits; end
+
+% Rayleigh Theoretical BER snr=10. (snr_dB/10);
+
+theoryBer-0.5.*(1-sqrt(snr./(snr+1))); % AWGN Theoretical BER
+
+theory BerAWGN=0.5*erfo(sqrt(10.(snr_dB/10))); semilogy(snr_dB,theory Ber-Line Width'.2)
+
+hold on:
+
+semilogy(snr_dB,BER,'or","LineWidth',2);
+
+hold on:
+
+semilogy(snr_dB,theory BerAWGN, 'blad-','LineWidth',2), legend("Rayleigh Theoretical', 'Rayleigh Simulated', 'AWGN Theoretical"); axis(10 20 10^-5 0.5]);
+
+xlabel('SNR (dB));
+
+ylabel('BER')
+
+grid on;
+
+10.
+cle: ,
+
+clear all:
+
+%%%% Initialization %%%% N-5; % Number of trials
+
+close all:
+
+m=10^6; %Number of bits in each trial
+
+ip = rand(1,m)>0.5; % Generated bits
+
+BPSK 2 ip-1:% Generated BPSK symbols
+
+snr dB 0:1:15: % range of snr values
+
+snr=10. (snr_dB/10); % snr value in the normal scale L-2; % Number of diversity branches
+
+% theoretical BER value for MRC combiner with 2 diversity branches p_R_MRC-1/2-1/2*(1+1/snr).^(-1/2):
+
+ber MRC_ana= p_R_MRC.^2. (1+2 (1-p_R_MRC));
+
+%%%%%%%%%% Receive MRC one by Two System%%%% n_err-zeros(1.length(snr_dB)); % Initialize the bit error counter
+
+for p = 1:N
+
+for q=1:length(snr_dB):
+
+% Generate white noise samples
+
+No-1/sqrt(2)[randn(Lm)+ 1jrandn(L,m)]; % Generate channel coefficient
+
+h=1/sqrt(2)*[randn(L,m)+ 1j randn(L.,m)]; kron(ones(L,1),BPSK); % array of symbols
+
+symbol rec_vector=h."symbol + 10^(-snr_dB(q)/20)*No:% received symbol
+
+% Decision metric
+
+dec_metric =sum(conj(h).*rec_vector.1)./sum(h. conj(h), 1); ip_hat real(dec_metric)>0; % Estimated symbol n_err(q)=n_err(q)+size(find([ip- ip_hat]),2); % compare input and estimated symbols end
+
+end
+
+ber_MRC_sim = n_err/(N*m);
+
+semilogy(snr_dB,ber_MRC_ana,'-Line Width',2)
+
+hold on;
+
+semilogy(snr dB,ber_MRC_sim,'ob', 'Line Width',2) legend('ber MRC sim', 'ber MRC ana'); xlabel('SNR (dB)');
+
+ylabel('BER');
+
+11.
+cle:
+
+close all;
+
+clear all:
+
+% Number of information bits m 10^3;
+
+% Range of SNR values snr_dB [0:1:20]:
+
+for j=1:1:length(snr_dB) n err = 0;
+
+n_bits = 0;
+
+while n err < 100 inf_bits round(rand(1,m));
+
+% BPSK modulator x-2 (inf_bits-0.5);
+
+% Noise variance NO-1/10(snr_dB()/10);
+
+Dove as
+
+nl sqrt(N0/2) abs((randn(1,length(x))+i*randn(1,length(x)))); %noise for the first n2=sqrt(N0/2)* abs((randn(1.length(x))+i randn(1,length(x)))); %noise for the second h1-sqrt(0.5) abs((randn(1.length(x))+i*randn(1,length(x)))); %rayleigh amplitude 1 h2-sqrt(0.5) abs((randn(1,length(x))+i*randn(1.length(x)))); %rayleigh amplitude 2
+
+%Equal Gain combining
+
+yl hl. x+nl: % Signal I y2-h2.x+n2; % Signal 2 y_equal 0.5 (y1+y2);
+
+% dec_metric-(norm(y_equal-h1*x-h2*x))^2; % Decision making at the Receiver est bits-y_equal <0;
+
+% Calculate Bit Errors
+
+diff-inf bits-est bits; n_err-n_err+sum(abs(diff));
+
+n_bits-n_bits+length(inf_bits); end
+
+% Calculate Bit Error Rate BER()=n_err/n_bits;
+
+end
+
+semilogy(snr_dB,BER, 'or-",LineWidth',2);
+
+legend('Rayleigh EGC Simulated', 'Rayleigh Theoretical');
+
+axis([0 20 10^-5 1]);
+
+xlabel('SNR (dB)');
+
+ylabel('BER');
+
+grid on;
