@@ -658,100 +658,114 @@ ylabel('BER')
 grid on;
 
 10.
-cle: ,
+
+clc;
 
 clear all:
 
-%%%% Initialization %%%% N-5; % Number of trials
+close all;
 
-close all:
+N=5; % Number of trials
 
 m=10^6; %Number of bits in each trial
 
 ip = rand(1,m)>0.5; % Generated bits
 
-BPSK 2 ip-1:% Generated BPSK symbols
+BPSK=2*ip-1;% Generated BPSK symbols
 
-snr dB 0:1:15: % range of snr values
+snr_dB=0:1:15; % range of snr values
 
-snr=10. (snr_dB/10); % snr value in the normal scale L-2; % Number of diversity branches
+snr=10.^(snr_dB/10); % snr value in the normal scale 
+L=2; % Number of diversity branches
+p_R_MRC=1/2-1/2*(1+1./snr).^(-1/2);
 
-% theoretical BER value for MRC combiner with 2 diversity branches p_R_MRC-1/2-1/2*(1+1/snr).^(-1/2):
+ber_MRC_ana= p_R_MRC.^2.*(1+2*(1-p_R_MRC));
 
-ber MRC_ana= p_R_MRC.^2. (1+2 (1-p_R_MRC));
-
-%%%%%%%%%% Receive MRC one by Two System%%%% n_err-zeros(1.length(snr_dB)); % Initialize the bit error counter
+n_err=zeros(1.length(snr_dB)); % Initialize the bit error counter
 
 for p = 1:N
 
-for q=1:length(snr_dB):
+for q=1:length(snr_dB)
 
 % Generate white noise samples
 
-No-1/sqrt(2)[randn(Lm)+ 1jrandn(L,m)]; % Generate channel coefficient
+No-1/sqrt(2)*[randn(L,m)+ 1j*randn(L,m)]; % Generate channel coefficient
 
-h=1/sqrt(2)*[randn(L,m)+ 1j randn(L.,m)]; kron(ones(L,1),BPSK); % array of symbols
+h=1/sqrt(2)*[randn(L,m)+ 1j*randn(L,m)]; 
 
-symbol rec_vector=h."symbol + 10^(-snr_dB(q)/20)*No:% received symbol
+symbol=kron(ones(L,1),BPSK);
+rec_vector=h.*symbol + 10^(-snr_dB(q)/20)*No;% received symbol
 
 % Decision metric
 
-dec_metric =sum(conj(h).*rec_vector.1)./sum(h. conj(h), 1); ip_hat real(dec_metric)>0; % Estimated symbol n_err(q)=n_err(q)+size(find([ip- ip_hat]),2); % compare input and estimated symbols end
+dec_metric =sum(conj(h).*rec_vector,1)./sum(h.*conj(h), 1); 
+ip_hat=real(dec_metric)>0; % Estimated symbol 
+n_err(q)=n_err(q)+size(find([ip- ip_hat]),2); 
+end
 
 end
 
 ber_MRC_sim = n_err/(N*m);
 
-semilogy(snr_dB,ber_MRC_ana,'-Line Width',2)
+semilogy(snr_dB,ber_MRC_ana,'*r','Line Width',2)
 
 hold on;
 
-semilogy(snr dB,ber_MRC_sim,'ob', 'Line Width',2) legend('ber MRC sim', 'ber MRC ana'); xlabel('SNR (dB)');
+semilogy(snr dB,ber_MRC_sim,'ob', 'Line Width',2) 
+legend('ber MRC sim', 'ber MRC ana'); 
+xlabel('SNR (dB)');
 
 ylabel('BER');
 
 11.
-cle:
+
+clc:
 
 close all;
 
 clear all:
+m= 10^3;
+snr_dB [0:1:20]:
 
-% Number of information bits m 10^3;
-
-% Range of SNR values snr_dB [0:1:20]:
-
-for j=1:1:length(snr_dB) n err = 0;
+for j=1:1:length(snr_dB) 
+n_ err = 0;
 
 n_bits = 0;
 
-while n err < 100 inf_bits round(rand(1,m));
+while(n_err < 100) 
+inf_bits round(rand(1,m));
 
-% BPSK modulator x-2 (inf_bits-0.5);
+% BPSK modulator 
+x=-2*(inf_bits-0.5);
 
-% Noise variance NO-1/10(snr_dB()/10);
+% Noise variance 
+NO=1/10^(snr_dB()/10);
 
-Dove as
+nl= sqrt(N0/2)*abs((randn(1,length(x))+i*randn(1,length(x)))); 
+n2=sqrt(N0/2)* abs((randn(1.length(x))+i randn(1,length(x))));
+h1=sqrt(0.5)*abs((randn(1.length(x))+i*randn(1,length(x)))); 
+h2=sqrt(0.5)*abs((randn(1,length(x))+i*randn(1.length(x))));
 
-nl sqrt(N0/2) abs((randn(1,length(x))+i*randn(1,length(x)))); %noise for the first n2=sqrt(N0/2)* abs((randn(1.length(x))+i randn(1,length(x)))); %noise for the second h1-sqrt(0.5) abs((randn(1.length(x))+i*randn(1,length(x)))); %rayleigh amplitude 1 h2-sqrt(0.5) abs((randn(1,length(x))+i*randn(1.length(x)))); %rayleigh amplitude 2
+yl=hl.*x+nl;
+y2=h2.*x+n2;
+y_equal=0.5*(y1+y2);
 
-%Equal Gain combining
-
-yl hl. x+nl: % Signal I y2-h2.x+n2; % Signal 2 y_equal 0.5 (y1+y2);
-
-% dec_metric-(norm(y_equal-h1*x-h2*x))^2; % Decision making at the Receiver est bits-y_equal <0;
+% dec_metric=(norm(y_equal-h1*x-h2*x))^2; 
+% Decision making at the Receiver est bits-y_equal <0;
 
 % Calculate Bit Errors
 
-diff-inf bits-est bits; n_err-n_err+sum(abs(diff));
+diff-inf bits-est bits;
+n_err=n_err+sum(abs(diff));
+n_bits=n_bits+length(inf_bits); 
+end
 
-n_bits-n_bits+length(inf_bits); end
-
-% Calculate Bit Error Rate BER()=n_err/n_bits;
+% Calculate Bit Error Rate 
+BER()=n_err/n_bits;
 
 end
 
-semilogy(snr_dB,BER, 'or-",LineWidth',2);
+semilogy(snr_dB,BER, 'or-',LineWidth',2);
 
 legend('Rayleigh EGC Simulated', 'Rayleigh Theoretical');
 
